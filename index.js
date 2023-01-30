@@ -1,28 +1,22 @@
-const Sib = require("sib-api-v3-sdk");
+var SibApiV3Sdk = require("sib-api-v3-sdk");
 require("dotenv").config();
-const client = Sib.ApiClient.instance;
-const apiKey = client.authentications["api-key"];
-apiKey.apiKey = process.env.API_KEY;
-
-const tranEmailApi = new Sib.TransactionalEmailsApi();
-const sender = {
-  email: "jknithin6029@gmail.com",
-  name: "Nithin",
-};
-const receivers = [
-  {
-    email: "jknithin36@gmail.com",
-  },
-];
-
-tranEmailApi
+SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
+  process.env.API_KEY;
+new SibApiV3Sdk.TransactionalEmailsApi()
   .sendTransacEmail({
-    sender,
-    to: receivers,
-    subject: "Subscribe to Cules Coding to become a developer",
-    textContent: "jk nithin kumar",
+    subject: "Hello from the Node SDK!",
+    sender: { email: "jknithin9332@gmail.com", name: "Sendinblue" },
+    replyTo: { email: "jknithin9332@gmail.com", name: "JK" },
+    to: [{ name: "John Doe", email: "jknithin6029@gmail.com" }],
+    htmlContent:
+      "<html><body><h1>This is a transactional email {{params.bodyMessage}}</h1></body></html>",
+    params: { bodyMessage: "Made just for you!" },
   })
-  .then(console.log)
-  .catch(console.log);
-
-//email -acmpimg
+  .then(
+    function (data) {
+      console.log(data);
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
