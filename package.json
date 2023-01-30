@@ -1,0 +1,23 @@
+{
+  "name": "sending_emails",
+  "version": "1.0.0",
+  "description": "for testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jknithin36/sending_emails.git"
+  },
+  "author": "jk nithin kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jknithin36/sending_emails/issues"
+  },
+  "homepage": "https://github.com/jknithin36/sending_emails#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "sib-api-v3-sdk": "^8.5.0"
+  }
+}
