@@ -1,3 +1,4 @@
+//SINGLE_EMAIL
 var SibApiV3Sdk = require("sib-api-v3-sdk");
 require("dotenv").config();
 SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
